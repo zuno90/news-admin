@@ -21,7 +21,7 @@ window.app = {
 
 // Create Apllo Client
 const mainLink = createUploadLink({
-    uri: window.app.REACT_APP_API,
+    uri: "https://news-api.dadsnetwork.co/gql/v1",
     headers: {
         "x-apollo-operation-name": "",
     },
