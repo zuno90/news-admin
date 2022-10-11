@@ -23,4 +23,4 @@ jobs:
                     #   DOCKER_BUILDKIT=1 docker build -t news-admin:$GITHUB_RUN_NUMBER .
                     #   docker stop news-admin || echo "OK"
                     #   docker rm news-admin || echo "OK"
-                      news-admin:$GITHUB_RUN_NUMBER
+                    #   news-admin:$GITHUB_RUN_NUMBER
