@@ -1,6 +1,5 @@
 import React from "react"
-import dotenv from "dotenv"
-dotenv.config()
+
 import * as ReactDOM from "react-dom/client"
 import { BrowserRouter as Router } from "react-router-dom"
 import { ApolloProvider, ApolloClient, InMemoryCache, concat } from "@apollo/client"
@@ -11,9 +10,14 @@ import reportWebVitals from "./reportWebVitals"
 import * as serviceWorker from "./serviceWorker"
 
 window.app = {
-    BASE_URL: process.env.NODE_ENV === "production" ? "https://news-admin.dadsnetwork.co" : "http://localhost:3000",
-    REACT_APP_API: process.env.NODE_ENV === "production" ? "https://news-api.dadsnetwork.co/gql/v1" : "http://localhost:5005/gql/v1",
+    BASE_URL: "https://news-admin.dadsnetwork.co",
+    REACT_APP_API: "https://news-api.dadsnetwork.co/gql/v1",
 }
+
+// window.app = {
+//     BASE_URL:  "http://localhost:3000",
+//     REACT_APP_API: "http://localhost:5005/gql/v1",
+// }
 
 // Create Apllo Client
 const mainLink = createUploadLink({
