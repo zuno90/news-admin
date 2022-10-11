@@ -1,12 +1,21 @@
-# development
-FROM node:alpine as development
+FROM node:alpine
 WORKDIR /usr/src/app/admin
 COPY ./package*.json .
 RUN yarn
 COPY . .
 RUN yarn build
 
-# production
+CMD [ "yarn", "start" ]
+
+# # development
+# FROM node:alpine as development
+# WORKDIR /usr/src/app/admin
+# COPY ./news-admin/package*.json .
+# RUN yarn
+# COPY ./news-admin .
+# RUN yarn build
+
+# # production
 # FROM node:alpine as production
 
 # ARG NODE_ENV=production
