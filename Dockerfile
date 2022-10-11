@@ -3,19 +3,19 @@ FROM node:alpine as development
 WORKDIR /usr/src/app/admin
 COPY ./news-admin/package*.json .
 RUN yarn
-COPY ./news-admin .
+# COPY ./news-admin .
 RUN yarn build
 
 # production
-FROM node:alpine as production
+# FROM node:alpine as production
 
-ARG NODE_ENV=production
-ENV NODE_ENV=${NODE_ENV}
+# ARG NODE_ENV=production
+# ENV NODE_ENV=${NODE_ENV}
 
-WORKDIR /usr/src/app/admin
+# WORKDIR /usr/src/app/admin
 
-RUN yarn --only=production
+# RUN yarn --only=production
 
-COPY --from=development /urs/src/app/dist ./dist
+# COPY --from=development /urs/src/app/dist ./dist
 
 # CMD ["node", "dist/apps/orders/main"]
