@@ -14,11 +14,7 @@ ENV NODE_ENV=${NODE_ENV}
 
 WORKDIR /usr/src/app/admin
 
-COPY ./news-admin/package*.json .
-
 RUN yarn --only=production
-
-COPY ./news-admin .
 
 COPY --from=development /urs/src/app/dist ./dist
 
