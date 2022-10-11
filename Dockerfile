@@ -1,9 +1,9 @@
 # development
 FROM node:alpine as development
 WORKDIR /usr/src/app/admin
-COPY ./news-admin/package*.json .
+COPY ./package*.json .
 RUN yarn
-# COPY ./news-admin .
+COPY . .
 RUN yarn build
 
 # production
