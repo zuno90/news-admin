@@ -21,7 +21,5 @@ jobs:
                       DOCKER_BUILDKIT=1 docker build -t news-admin:$GITHUB_RUN_NUMBER .
                       docker stop news-admin || echo "stop news-admin"
                       docker rm news-admin || echo "remove news-admin"
-                      docker run -d --name news-admin -p 3000:3000 \
-                        -e NODE_ENV=production \
-                        -e HOST=172.31.16.179 \
+                      docker run -d --name news-admin -p 3000:3000 -e NODE_ENV=production \
                         news-admin:$GITHUB_RUN_NUMBER
