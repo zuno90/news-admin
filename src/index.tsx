@@ -9,8 +9,8 @@ import reportWebVitals from "./reportWebVitals"
 import * as serviceWorker from "./serviceWorker"
 
 window.app = {
-    BASE_URL: process.env.NODE_ENV === "production" ? "" : "http://localhost:3000",
-    REACT_APP_API: process.env.NODE_ENV === "production" ? "" : "http://localhost:5005/gql/v1",
+    BASE_URL: process.env.NODE_ENV === "production" ? "https://news-admin.dadsnetwork.co" : "http://localhost:3000",
+    REACT_APP_API: process.env.NODE_ENV === "production" ? "https://news-api.dadsnetwork.co/gql/v1" : "http://localhost:5005/gql/v1",
 }
 
 // Create Apllo Client
