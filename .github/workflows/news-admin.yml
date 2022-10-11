@@ -6,7 +6,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: executing remote ssh commands using password
-              uses: supnobita/ssh-action@master
+              uses: zuno90/ssh-action@master
               with:
                   host: 54.169.185.39
                   username: ubuntu
