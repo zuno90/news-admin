@@ -1,9 +1,9 @@
 # development
 FROM node:alpine as development
 WORKDIR /usr/src/app/admin
-COPY ./graphql-client/package*.json .
+COPY ./news-admin/package*.json .
 RUN yarn
-COPY ./graphql-client .
+COPY ./news-admin .
 RUN yarn build
 
 # production
@@ -14,11 +14,11 @@ ENV NODE_ENV=${NODE_ENV}
 
 WORKDIR /usr/src/app/admin
 
-COPY ./graphql-client/package*.json .
+COPY ./news-admin/package*.json .
 
 RUN yarn --only=production
 
-COPY ./graphql-client .
+COPY ./news-admin .
 
 COPY --from=development /urs/src/app/dist ./dist
 
