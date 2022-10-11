@@ -1,4 +1,6 @@
 import React from "react"
+import dotenv from "dotenv"
+dotenv.config()
 import * as ReactDOM from "react-dom/client"
 import { BrowserRouter as Router } from "react-router-dom"
 import { ApolloProvider, ApolloClient, InMemoryCache, concat } from "@apollo/client"
