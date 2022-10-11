@@ -16,7 +16,9 @@ jobs:
                   script: |
                       cd code/
                       rm -rf news-admin/
-                      git clone https://${{ secrets.NEWS_DEV_TOKEN_SSH }}@github.com/zuno90/news-admin.git
+                      git clone https://github.com/zuno90/news-admin.git
+                      docker stop news-admin || echo "stop news-admin"
+                      docker rm news-admin || echo "remove news-admin"
                       docker-compose up -d news-admin
                     #   cd news-admin
                     #   DOCKER_BUILDKIT=1 docker build -t news-admin:$GITHUB_RUN_NUMBER .
