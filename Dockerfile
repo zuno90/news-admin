@@ -3,7 +3,6 @@ WORKDIR /usr/src/app/admin
 COPY ./package*.json .
 RUN yarn
 COPY . .
-RUN npm ci
 RUN yarn build
 
 # ==== RUN =======
