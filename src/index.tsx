@@ -13,7 +13,7 @@ import * as serviceWorker from "./serviceWorker"
 // const REACT_APP_API = "https://news-api.dadsnetwork.co/gql/v1"
 window.app = {
     BASE_URL: "https://news-admin.dadsnetwork.co",
-    REACT_APP_API: "https://news-api.dadsnetwork.co/gql/v1"
+    REACT_APP_API: "https://news-api.dadsnetwork.co/gql/v1",
 }
 
 // window.app = {
@@ -24,9 +24,8 @@ window.app = {
 // Create Apllo Client
 const mainLink = createUploadLink({
     uri: window.app.REACT_APP_API,
-    headers: {
-        "x-apollo-operation-name": "",
-    },
+    fetchOptions: { mode: "no-cors" },
+    headers: { "x-apollo-operation-name": "" },
 }) // HTTP + Upload uri
 const authMiddleware = setContext((_, { headers }) => {
     const accessToken = localStorage.getItem("accessToken")
