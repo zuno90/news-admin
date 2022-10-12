@@ -9,17 +9,21 @@ import App from "./App"
 import reportWebVitals from "./reportWebVitals"
 import * as serviceWorker from "./serviceWorker"
 
-const BASE_URL = "https://news-admin.dadsnetwork.co"
-const REACT_APP_API = "https://news-api.dadsnetwork.co/gql/v1"
+// const BASE_URL = "https://news-admin.dadsnetwork.co"
+// const REACT_APP_API = "https://news-api.dadsnetwork.co/gql/v1"
+window.app = {
+    BASE_URL: "https://news-admin.dadsnetwork.co",
+    REACT_APP_API: "https://news-api.dadsnetwork.co/gql/v1"
+}
 
 // window.app = {
-//     BASE_URL:  "http://localhost:3000",
+//     BASE_URL: "http://localhost:3000",
 //     REACT_APP_API: "http://localhost:5005/gql/v1",
 // }
 
 // Create Apllo Client
 const mainLink = createUploadLink({
-    uri: REACT_APP_API,
+    uri: window.app.REACT_APP_API,
     headers: {
         "x-apollo-operation-name": "",
     },
@@ -42,13 +46,11 @@ const client = new ApolloClient({
 const container = document.getElementById("root")
 if (!container) throw new Error("Failed to find the root element")
 ReactDOM.createRoot(container).render(
-    <React.StrictMode>
-        <Router>
-            <ApolloProvider client={client}>
-                <App />
-            </ApolloProvider>
-        </Router>
-    </React.StrictMode>
+    <Router>
+        <ApolloProvider client={client}>
+            <App />
+        </ApolloProvider>
+    </Router>
 )
 serviceWorker.unregister()
 reportWebVitals()

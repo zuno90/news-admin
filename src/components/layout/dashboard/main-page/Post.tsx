@@ -6,7 +6,6 @@ import {
     useColorModeValue,
     Box,
     Stack,
-    Heading,
     Avatar,
     SimpleGrid,
     Flex,
@@ -64,15 +63,19 @@ const PostCard = ({ bgColor, textColor, data }: TPostCard) => {
                     color={categoryColor}
                     textTransform="uppercase"
                     fontWeight="800"
-                    fontSize="sm"
+                    fontSize="xl"
                     letterSpacing="1.1"
                 >
                     {data.category.title}
                 </Text>
-                <Heading color={textColor} fontSize="xl">
+                <Text color={textColor} fontWeight="bold" fontSize="lg">
                     {data.title}
-                </Heading>
-                <Text color="gray.500">{data.description}</Text>
+                </Text>
+                <Text color={textColor} fontSize="xs">
+                    {data.description && data.description.length > 20
+                        ? data.description.substring(0, 10) + "..."
+                        : data.description}
+                </Text>
             </Stack>
             <Stack p="4" direction="row" spacing="2" align="center">
                 <Avatar src="https://avatars0.githubusercontent.com/u/1164541?v=4" />

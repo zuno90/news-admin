@@ -171,7 +171,7 @@ const CreatePost: React.FC = () => {
             }
             createPostMutation({ variables: { createPostInput: finishPostData } })
             // handle reset form
-            reset()
+            // reset()
         } catch (error) {}
     }
 
@@ -179,11 +179,7 @@ const CreatePost: React.FC = () => {
         <form onSubmit={handleSubmit(handleCreatePost)}>
             <FormControl mb="4" isInvalid={!!errors.cateId} isRequired>
                 <FormLabel>Category</FormLabel>
-                <span
-                    {...register("cateId", {
-                        required: "* Please select category",
-                    })}
-                ></span>
+                <span {...register("cateId", { required: "* Please select category" })}></span>
                 <Select
                     className="post__cate"
                     styles={customStyles}
@@ -259,11 +255,7 @@ const CreatePost: React.FC = () => {
             </Tabs>
             <FormControl mb="4" isInvalid={!!errors.content} isRequired>
                 <FormLabel>Content</FormLabel>
-                <span
-                    {...register("content", {
-                        required: "* Content is required",
-                    })}
-                ></span>
+                <span {...register("content", { required: "* Content is required" })}></span>
                 <CkeditorCustom getContent={handleContent} isSubmitted={isSubmitted} />
                 <FormErrorMessage>{errors.content && errors.content.message}</FormErrorMessage>
             </FormControl>
