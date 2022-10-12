@@ -3,9 +3,9 @@ WORKDIR /usr/src/app/admin
 COPY ./package*.json .
 RUN yarn
 COPY . .
-# RUN yarn build
+RUN yarn build
 
-CMD [ "yarn", "start" ]
+# CMD [ "yarn", "start" ]
 
 # # development
 # FROM node:alpine as development
