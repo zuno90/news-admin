@@ -170,8 +170,6 @@ const CreatePost: React.FC = () => {
                 thumbnail: fileUploaded.data.singleUpload.data,
             }
             createPostMutation({ variables: { createPostInput: finishPostData } })
-            // handle reset form
-            // reset()
         } catch (error) {}
     }
 

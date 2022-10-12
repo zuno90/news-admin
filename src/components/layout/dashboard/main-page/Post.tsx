@@ -270,12 +270,22 @@ const Post: React.FC = () => {
                     </Button>
                 </VStack>
             ) : (
-                <SimpleGrid columns={[1, 2, 4]} mt="4" spacing="2">
-                    {posts &&
-                        posts.map((item: IPostData, index: number) => (
-                            <PostCard key={index} bgColor={bgColor} textColor={textColor} data={item} />
-                        ))}
-                </SimpleGrid>
+                <>
+                    <Button
+                        onClick={() => navigate("/post/create")}
+                        rightIcon={<VscAdd />}
+                        size="sm"
+                        colorScheme="green"
+                    >
+                        Add New
+                    </Button>
+                    <SimpleGrid columns={[1, 2, 4]} mt="4" spacing="2">
+                        {posts &&
+                            posts.map((item: IPostData, index: number) => (
+                                <PostCard key={index} bgColor={bgColor} textColor={textColor} data={item} />
+                            ))}
+                    </SimpleGrid>
+                </>
             )}
         </>
     )
