@@ -9,10 +9,8 @@ import App from "./App"
 import reportWebVitals from "./reportWebVitals"
 import * as serviceWorker from "./serviceWorker"
 
-window.app = {
-    BASE_URL: "https://news-admin.dadsnetwork.co",
-    REACT_APP_API: "https://news-api.dadsnetwork.co/gql/v1",
-}
+const BASE_URL = "https://news-admin.dadsnetwork.co"
+const REACT_APP_API = "https://news-api.dadsnetwork.co/gql/v1"
 
 // window.app = {
 //     BASE_URL:  "http://localhost:3000",
@@ -21,7 +19,7 @@ window.app = {
 
 // Create Apllo Client
 const mainLink = createUploadLink({
-    uri: "https://news-api.dadsnetwork.co/gql/v1",
+    uri: REACT_APP_API,
     headers: {
         "x-apollo-operation-name": "",
     },

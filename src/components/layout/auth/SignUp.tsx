@@ -71,11 +71,11 @@ const SignUp: React.FC = () => {
                 <Flex
                     direction="column"
                     gap="4"
+                    p="8"
                     w="400px"
+                    mx={{ base: "40px", md: "100px" }}
                     background="transparent"
                     borderRadius="15px"
-                    p="40px"
-                    mx={{ base: "100px" }}
                     bg={bgColor}
                     boxShadow="0 20px 27px 0 rgb(0 0 0 / 5%)"
                 >
