@@ -267,7 +267,7 @@ const UpdatePost: React.FC = () => {
                                 register={register("thumb", {
                                     validate: (files: any) => {
                                         // handle thumbnail upload
-                                        if (files.length < 1) return "* Files is required"
+                                        // if (files.length < 1) return "* Files is required"
                                         // for (const file of Array.from(files)) {}
                                         // validate single file upload
                                         const fsMb = files[0].size / (1024 * 1024)
