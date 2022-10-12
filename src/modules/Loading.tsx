@@ -1,12 +1,11 @@
 import { Center, useColorModeValue } from "@chakra-ui/react"
 import { Audio } from "react-loader-spinner"
 
-const Loading = () => {
-    const bgColor = useColorModeValue("gray.50", "gray.900")
-    const textColor = useColorModeValue("teal.300", "white")
+const Loading: React.FC = () => {
+    const textColor = useColorModeValue("purple", "yellow")
     return (
-        <Center bg={bgColor} h="100vh">
-            <Audio height="100" width="100" color={textColor} ariaLabel="loading" />
+        <Center h="100vh">
+            <Audio height="100" width="50" color={textColor} ariaLabel="loading" />
         </Center>
     )
 }

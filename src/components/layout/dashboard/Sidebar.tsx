@@ -201,8 +201,8 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
                 icon={<FcMenu />}
             />
 
-            <Text display={{ base: "flex", md: "none" }} fontSize="2xl" fontFamily="monospace" fontWeight="bold">
-                Logo
+            <Text display={{ base: "flex", md: "none" }}>
+                <Image src="logo-light.png" w="120px" />
             </Text>
 
             <HStack spacing={{ base: "0", md: "6" }}>
@@ -214,7 +214,6 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
                                 <Flex justifyContent="center" alignItems="center" w="full" h="full" overflow="hidden">
                                     {/* Ideally, only the box should be used. The <Flex /> is used to style the preview. */}
                                     <Box
-                                        as="div"
                                         position="relative"
                                         w={size}
                                         h={size}

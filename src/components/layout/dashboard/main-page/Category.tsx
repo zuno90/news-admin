@@ -39,6 +39,7 @@ import {
 import { ICategoryData } from "../../../../types/data.type"
 import { useToast } from "../../../../utils/toast"
 import ModalComponent from "../../../../modules/ModalComponent"
+import Loading from "../../../../modules/Loading"
 
 interface ICategoryInput {
     _id?: string
@@ -57,7 +58,7 @@ const Category: React.FC = () => {
 
     // GET ALL CATEs
     const [categories, setCategories] = useState([])
-    useQuery(GET_ALL_CATEGORIES, {
+    const { loading } = useQuery(GET_ALL_CATEGORIES, {
         onCompleted({ getAllCategories }) {
             setCategories(getAllCategories.data)
         },
@@ -191,7 +192,7 @@ const Category: React.FC = () => {
             console.error(error)
         }
     }
-
+    if (loading) return <Loading />
     return (
         <>
             {!categories.length ? (
@@ -378,7 +379,6 @@ const CreateFormInput = () => {
         register: registerCreateCategory,
         formState: { errors: errorsCreateCategory },
     } = useFormContext<ICategoryInput>()
-    console.log(errorsCreateCategory)
     return (
         <>
             <FormControl mb="4" isInvalid={!!errorsCreateCategory.title} isRequired>

@@ -83,7 +83,7 @@ const SignIn: React.FC = () => {
                     boxShadow="0 20px 27px 0 rgb(0 0 0 / 5%)"
                 >
                     <Image src="/logo-light.png" alt="logo" />
-                    <Heading color={titleColor} fontSize="32px" textAlign="center">
+                    <Heading color={titleColor} fontSize="lg" textAlign="center">
                         SIGN IN
                     </Heading>
 
@@ -135,12 +135,8 @@ const SignIn: React.FC = () => {
                             mb="20px"
                             color="white"
                             mt="20px"
-                            _hover={{
-                                bg: "teal.200",
-                            }}
-                            _active={{
-                                bg: "teal.400",
-                            }}
+                            _hover={{ bg: "teal.200" }}
+                            _active={{ bg: "teal.400" }}
                             isLoading={loading && true}
                         >
                             SIGN IN

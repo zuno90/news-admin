@@ -56,7 +56,7 @@ export const AuthContextProvider = ({ children }: { children: React.ReactNode })
             })
         }
     }
-    useEffect(() => checkAuth, [])
+    useEffect(() => checkAuth, [location])
 
     // sign in
     const signIn = (token: string) => {
@@ -65,7 +65,9 @@ export const AuthContextProvider = ({ children }: { children: React.ReactNode })
             checkAuth()
             const from = location.state as { previousPage: string }
             navigate(from ? from.previousPage : "/", { replace: true })
-        } catch (error) {}
+        } catch (error) {
+            console.error(error)
+        }
     }
 
     // sign out
@@ -100,7 +102,9 @@ export const AuthContextProvider = ({ children }: { children: React.ReactNode })
                 isAuth: false,
                 user: null,
             })
-        } catch (error) {}
+        } catch (error) {
+            console.error(error)
+        }
     }
 
     // handle auto logout - track event bind

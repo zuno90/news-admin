@@ -1,4 +1,3 @@
-// Chakra imports
 import { useNavigate } from "react-router-dom"
 import {
     Text,
@@ -31,6 +30,7 @@ import { FcGlobe, FcSupport, FcEmptyTrash } from "react-icons/fc"
 import ModalComponent from "../../../../modules/ModalComponent"
 import { REMOVE_POST, UPDATE_STATUS_POST } from "../../../../graphql-query/post/mutation"
 import { useToast } from "../../../../utils/toast"
+import Loading from "../../../../modules/Loading"
 
 type TPostCard = {
     bgColor: string
@@ -151,6 +151,7 @@ const CardOption = ({ id, status }: { id: string; status: string }) => {
     }
     return (
         <>
+            {(updateStatusPostLoading || removePostLoading) && <Loading />}
             <Flex justifyContent="center">
                 <Popover placement="bottom" isLazy>
                     <PopoverTrigger>
@@ -241,7 +242,7 @@ const CardOption = ({ id, status }: { id: string; status: string }) => {
 
 const Post: React.FC = () => {
     const [posts, setPosts] = useState([])
-    useQuery(GET_ALL_POSTS, {
+    const { loading } = useQuery(GET_ALL_POSTS, {
         onCompleted({ getAllPosts }) {
             setPosts(getAllPosts.data)
         },
@@ -253,6 +254,7 @@ const Post: React.FC = () => {
     const bgColor = useColorModeValue("white", "gray.700")
     const textColor = useColorModeValue("gray.800", "white")
 
+    if (loading) return <Loading />
     return (
         <>
             {!posts.length ? (
@@ -280,10 +282,9 @@ const Post: React.FC = () => {
                         Add New
                     </Button>
                     <SimpleGrid columns={[1, 2, 4]} mt="4" spacing="2">
-                        {posts &&
-                            posts.map((item: IPostData, index: number) => (
-                                <PostCard key={index} bgColor={bgColor} textColor={textColor} data={item} />
-                            ))}
+                        {posts.map((item: IPostData, index: number) => (
+                            <PostCard key={index} bgColor={bgColor} textColor={textColor} data={item} />
+                        ))}
                     </SimpleGrid>
                 </>
             )}
