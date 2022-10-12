@@ -9,8 +9,6 @@ import App from "./App"
 import reportWebVitals from "./reportWebVitals"
 import * as serviceWorker from "./serviceWorker"
 
-// const BASE_URL = "https://news-admin.dadsnetwork.co"
-// const REACT_APP_API = "https://news-api.dadsnetwork.co/gql/v1"
 window.app = {
     BASE_URL: "https://news-admin.dadsnetwork.co",
     REACT_APP_API: "https://news-api.dadsnetwork.co/gql/v1",
@@ -24,8 +22,12 @@ window.app = {
 // Create Apllo Client
 const mainLink = createUploadLink({
     uri: window.app.REACT_APP_API,
-    fetchOptions: { mode: "no-cors" },
-    headers: { "x-apollo-operation-name": "" },
+    headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true,
+        "x-apollo-operation-name": "",
+    },
 }) // HTTP + Upload uri
 const authMiddleware = setContext((_, { headers }) => {
     const accessToken = localStorage.getItem("accessToken")
