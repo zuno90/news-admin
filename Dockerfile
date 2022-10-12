@@ -8,7 +8,7 @@ RUN yarn build
 # ==== RUN =======
 # Set the env to "production"
 ENV NODE_ENV production
-CMD [ "npx", "serve", "build" ]
+CMD [ "npx", "serve", "-s", "build" ]
 
 # CMD [ "yarn", "start" ]
 
